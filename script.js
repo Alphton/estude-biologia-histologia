@@ -1,4 +1,6 @@
+// =====================
 // Flashcards
+// =====================
 const cards = {
   folhetos: {q:'Quais são os três folhetos embrionários?',a:'Ectoderme, Mesoderme e Endoderme.'},
   epitelio: {q:'Função do tecido epitelial?',a:'Revestir, proteger, absorver e secretar.'},
@@ -11,22 +13,18 @@ document.querySelectorAll('[data-card]').forEach(btn => {
   btn.addEventListener('click', () => {
     const id = btn.getAttribute('data-card');
     const node = document.getElementById('card-view');
-    
-    // Mostra pergunta
     node.innerHTML = `<strong>${cards[id].q}</strong><div style='color:var(--muted);margin-top:8px;'>Clique para ver</div>`;
-    
-    // Remove listeners antigos
     const newNode = node.cloneNode(true);
     node.parentNode.replaceChild(newNode, node);
-    
-    // Adiciona listener para mostrar resposta
     newNode.addEventListener('click', () => {
       newNode.innerHTML = `<strong>${cards[id].q}</strong><div style='color:var(--muted);margin-top:8px;'>${cards[id].a}</div>`;
     });
   });
 });
 
+// =====================
 // Quiz múltipla escolha
+// =====================
 const quizQuestions = [
   {q:"Quais são os três folhetos embrionários?", a:["Ectoderme, Mesoderme e Endoderme","Ectoderme, Epiderme e Endoderme","Mesoderme, Endoderme e Epiderme"], correct:0},
   {q:"Função do tecido epitelial?", a:["Sustentar","Revestir, proteger, absorver e secretar","Transmitir sinais"], correct:1},
@@ -36,12 +34,12 @@ const quizQuestions = [
 ];
 
 document.getElementById("start-quiz").addEventListener("click", () => {
-  const content = document.getElementById("content");
+  const container = document.getElementById("quiz-container");
   let current = 0;
 
   function showQuestion(index) {
     const q = quizQuestions[index];
-    content.innerHTML = `<div class="section-title">Quiz</div>
+    container.innerHTML = `<div class="section-title">Quiz</div>
       <p>${q.q}</p>
       <div id="answers"></div>`;
     
@@ -56,7 +54,7 @@ document.getElementById("start-quiz").addEventListener("click", () => {
         setTimeout(() => {
           current++;
           if(current < quizQuestions.length) showQuestion(current);
-          else content.innerHTML = "<div class='section-title'>Parabéns!</div><p>Você terminou o quiz.</p>";
+          else container.innerHTML = "<div class='section-title'>Parabéns!</div><p>Você terminou o quiz.</p>";
         }, 800);
       });
       answersDiv.appendChild(btn);
