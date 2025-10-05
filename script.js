@@ -8,13 +8,31 @@ const cards = {
   muscular: {q:'Tipos de tecido muscular?',a:'Estriado esquelético, estriado cardíaco e liso.'},
   nervoso: {q:'Função do tecido nervoso?',a:'Transmissão de impulsos nervosos.'}
 };
-document.querySelectorAll('[data-card]').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const id=btn.getAttribute('data-card');
-    const node=document.getElementById('card-view');
-    node.innerHTML=`<strong>${cards[id].q}</strong><div style='color:var(--muted);margin-top:8px;'>Clique para ver</div>`;
-    node.onclick=()=>{node.innerHTML=`<strong>${cards[id].q}</strong><div style='color:var(--muted);margin-top:8px;'>${cards[id].a}</div>`};
+
+const cardView = document.getElementById("card-view");
+let showingAnswer = false;
+let currentCard = null;
+
+document.querySelectorAll('[data-card]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.getAttribute('data-card');
+    if(currentCard === id && showingAnswer){
+      cardView.innerHTML = "";
+      showingAnswer = false;
+      currentCard = null;
+    } else {
+      cardView.innerHTML = `<strong>${cards[id].q}</strong><div style='color:var(--muted);margin-top:8px;'>Clique na carta para ver a resposta</div>`;
+      showingAnswer = false;
+      currentCard = id;
+    }
   });
+});
+
+cardView.addEventListener('click', () => {
+  if(currentCard && !showingAnswer){
+    cardView.innerHTML = `<strong>${cards[currentCard].q}</strong><div style='color:var(--muted);margin-top:8px;'>${cards[currentCard].a}</div>`;
+    showingAnswer = true;
+  }
 });
 
 // ---------------------
@@ -49,13 +67,17 @@ startBtn.addEventListener("click", () => {
     `;
     const answersDiv = document.getElementById("answers");
 
-    q.a.forEach((ans,i)=>{
+    // embaralhar respostas
+    const shuffled = q.a.map((txt,i)=>({txt,i})).sort(()=>Math.random()-0.5);
+
+    shuffled.forEach(item=>{
       const btn = document.createElement("button");
       btn.className="ans";
-      btn.textContent=ans;
+      btn.textContent=item.txt;
       btn.addEventListener("click", ()=>{
-        if(i===q.correct) btn.classList.add("correct"), score++;
+        if(item.i===q.correct) btn.classList.add("correct"), score++;
         else btn.classList.add("wrong");
+
         Array.from(answersDiv.children).forEach(b=>b.disabled=true);
 
         setTimeout(()=>{
