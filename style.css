@@ -45,7 +45,9 @@ footer { margin-top:2rem; text-align:center; font-size:0.85rem; color:var(--mute
 .flash { display:flex; flex-wrap:wrap; gap:8px; }
 .chip { padding:6px 10px; border-radius:999px; background:var(--glass); font-size:0.85rem; font-weight:600; cursor:pointer; }
 
-#card-view { margin-top:12px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.05); }
+#card-view { margin-top:12px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.05); min-height:40px; display:flex; align-items:center; justify-content:center; text-align:center; }
+
+.btn-group { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
 
 @media(max-width:1024px){ .grid{ grid-template-columns:1fr; } header{text-align:center;} }
 @media(max-width:600px){ body{ font-size:0.95rem } .card{padding:1rem} h1{font-size:1.2rem} .btn,.btn-ghost{width:100%;margin-top:6px} }
