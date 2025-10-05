@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Histologia Rápida</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Histologia Rápida — Revisão Interativa</h1>
+    <div class="hint">Tempo estimado: 20–30 min</div>
+  </header>
+
+  <div class="wrap">
+    <div class="grid">
+      <main>
+        <section class="card">
+          <div class="section-title">Roteiro rápido</div>
+          <div class="hint">Siga a ordem: folhetos → epitélio → conjuntivo → muscular → nervoso → quiz</div>
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:0.8rem 0;">
+
+          <div id="content">
+            <div class="topic" id="folhetos">
+              <div class="section-title">1. Folhetos embrionários</div>
+              <p class="small">Três camadas que formam todos os tecidos:</p>
+              <ul>
+                <li><b>Ectoderme</b> — pele e sistema nervoso</li>
+                <li><b>Mesoderme</b> — músculos, ossos, sangue e coração</li>
+                <li><b>Endoderme</b> — revestimento interno dos sistemas digestório e respiratório</li>
+              </ul>
+              <div class="mnemonic">Dica: ecto = fora, meso = meio, endo = dentro</div>
+            </div>
+
+            <div class="topic" id="epitelio">
+              <div class="section-title">2. Tecido epitelial</div>
+              <p class="small">Revestimento e proteção, com funções de absorção e secreção.</p>
+              <ul>
+                <li><b>De revestimento</b> — pele, mucosas, pulmões e intestino</li>
+                <li><b>Glandular</b> — glândulas sudoríparas, salivares e tireoide</li>
+              </ul>
+              <div class="flash">
+                <div class="chip">Revestir</div><div class="chip">Proteger</div>
+                <div class="chip">Secretar</div><div class="chip">Absorver</div>
+              </div>
+            </div>
+
+            <div class="topic" id="conjuntivo">
+              <div class="section-title">3. Tecido conjuntivo — MACOS</div>
+              <p class="small">Função: sustentar, unir e preencher.</p>
+              <ul>
+                <li><b>M</b> — Modelado/frouxo: liga tecidos</li>
+                <li><b>A</b> — Adiposo: armazena gordura</li>
+                <li><b>C</b> — Cartilaginoso: firme e flexível (nariz, orelha)</li>
+                <li><b>O</b> — Ósseo: sustentação rígida</li>
+                <li><b>S</b> — Sanguíneo: transporte</li>
+              </ul>
+            </div>
+
+            <div class="topic" id="muscular">
+              <div class="section-title">4. Tecido muscular</div>
+              <ul>
+                <li><b>Estriado esquelético</b> — voluntário, movimenta o corpo</li>
+                <li><b>Estriado cardíaco</b> — involuntário, forma o coração</li>
+                <li><b>Liso</b> — involuntário, órgãos internos</li>
+              </ul>
+            </div>
+
+            <div class="topic" id="nervoso">
+              <div class="section-title">5. Tecido nervoso</div>
+              <p class="small">Coordena e transmite impulsos nervosos.</p>
+              <ul>
+                <li><b>Neurônios</b> — transmitem sinais</li>
+                <li><b>Células da glia</b> — suporte e nutrição</li>
+              </ul>
+            </div>
+
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+              <button class="btn" id="start-quiz">Começar Quiz</button>
+              <button class="btn-ghost" id="flash-toggle">Ativar Flashcards</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:1rem;">
+          <div class="section-title">Resumo rápido</div>
+          <p class="small">Folhetos → formam tecidos | Epitélio → reveste | Conjuntivo → sustenta | Muscular → move | Nervoso → comunica</p>
+        </section>
+      </main>
+
+      <aside>
+        <div class="card">
+          <div class="section-title">Flashcards</div>
+          <p class="small">Clique em um botão para testar seu conhecimento.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <button class="btn-ghost chip" data-card="folhetos">Folhetos</button>
+            <button class="btn-ghost chip" data-card="epitelio">Epitélio</button>
+            <button class="btn-ghost chip" data-card="conjuntivo">Conjuntivo</button>
+            <button class="btn-ghost chip" data-card="muscular">Muscular</button>
+            <button class="btn-ghost chip" data-card="nervoso">Nervoso</button>
+          </div>
+          <div id="card-view"></div>
+        </div>
+      </aside>
+    </div>
+    <footer>© 2025 Revisão de Histologia — feito para estudo rápido e visual</footer>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
