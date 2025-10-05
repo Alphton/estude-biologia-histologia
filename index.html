@@ -16,11 +16,8 @@
     <div class="grid">
       <main>
         <section class="card">
-          <div class="section-title">Roteiro rápido</div>
-          <div class="hint">Siga a ordem: folhetos → epitélio → conjuntivo → muscular → nervoso → quiz</div>
-          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:0.8rem 0;">
-
           <div id="content">
+            <!-- CONTEÚDO PRINCIPAL -->
             <div class="topic" id="folhetos">
               <div class="section-title">1. Folhetos embrionários</div>
               <p class="small">Três camadas que formam todos os tecidos:</p>
@@ -79,10 +76,11 @@
               <button class="btn" id="start-quiz">Começar Quiz</button>
               <button class="btn-ghost" id="flash-toggle">Ativar Flashcards</button>
             </div>
-
-            <!-- Aqui entra o quiz -->
-            <div id="quiz-container" style="margin-top:12px;"></div>
           </div>
+
+          <!-- CONTAINER DO QUIZ -->
+          <div id="quiz-container" style="display:none;"></div>
+
         </section>
 
         <section class="card" style="margin-top:1rem;">
