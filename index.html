@@ -79,7 +79,7 @@
           </div>
 
           <!-- Botões -->
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+          <div class="btn-group">
             <button class="btn" id="start-quiz">Começar Quiz</button>
             <button class="btn-ghost" id="flash-toggle">Ativar Flashcards</button>
           </div>
@@ -100,14 +100,14 @@
       <div class="card">
         <div class="section-title">Flashcards</div>
         <p class="small">Clique em um botão para testar seu conhecimento.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <div class="flashcards">
           <button class="btn-ghost chip" data-card="folhetos">Folhetos</button>
           <button class="btn-ghost chip" data-card="epitelio">Epitélio</button>
           <button class="btn-ghost chip" data-card="conjuntivo">Conjuntivo</button>
           <button class="btn-ghost chip" data-card="muscular">Muscular</button>
           <button class="btn-ghost chip" data-card="nervoso">Nervoso</button>
         </div>
-        <div id="card-view" style="margin-top:12px;padding:10px;border-radius:8px;background:rgba(255,255,255,0.05);"></div>
+        <div id="card-view"></div>
       </div>
     </aside>
   </div>
